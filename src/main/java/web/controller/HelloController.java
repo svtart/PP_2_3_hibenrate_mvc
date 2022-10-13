@@ -21,14 +21,6 @@ public class HelloController {
 		return "index";
 	}
 
-	@GetMapping(value = "/car")
-	public String printWelcomeCar(ModelMap model) {
-		List<String> messages = new ArrayList<>();
-		messages.add("Hello!");
-		messages.add("This is car page");
-		messages.add("Version 1.0 ");
-		model.addAttribute("messages", messages);
-		return "index";
-	}
+
 	
 }
