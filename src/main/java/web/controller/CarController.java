@@ -14,17 +14,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("/cars")
 public class CarController {
 
     @Autowired
     private CarServiceImpl carService;
 
-    @GetMapping()
-    public String index(ModelMap model) {
-        model.addAttribute("cars", carService.index());
-        return "cars";
-    }
+//    @GetMapping()
+//    public String index(ModelMap model) {
+//        model.addAttribute("cars", carService.index());
+//        return "cars";
+//    }
 
 //    @GetMapping("/{id}")
 //    public String show(@PathVariable("id") int id, ModelMap model) {
@@ -33,9 +32,14 @@ public class CarController {
 //    }
 
     @GetMapping(value = "/cars")
-    public String show(@RequestParam int count, ModelMap model) {
-        List<Car> cars = carService.show(count);
-        model.addAttribute("car", cars);
-        return "show";
+    public String show(@RequestParam(required = false) Integer count, ModelMap model) {
+        List<Car> cars;
+        if(count != null) {
+            cars = carService.show(count);
+        } else {
+            cars = carService.index();
+        }
+        model.addAttribute("cars", cars);
+        return "cars";
     }
 }
