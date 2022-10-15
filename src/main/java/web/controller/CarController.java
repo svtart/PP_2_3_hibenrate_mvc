@@ -16,12 +16,7 @@ public class CarController {
     @Autowired
     private CarServiceImpl carService;
 
-//    @GetMapping()
-//    public String index(ModelMap model) {
-//        model.addAttribute("cars", carService.index());
-//        return "cars";
-//    }
-
+// Другой способ чере @PathVariable
 //    @GetMapping("/{id}")
 //    public String show(@PathVariable("id") int id, ModelMap model) {
 //        model.addAttribute("car", carService.show(id));
