@@ -10,6 +10,7 @@
 <table class="table">
     <thead>
     <tr>
+        <th scope="col">ID</th>
         <th scope="col">Name</th>
         <th scope="col">Surname</th>
         <th scope="col">Department</th>
@@ -18,6 +19,7 @@
     </thead>
     <tbody>
     <tr th:each="user : ${allUsers}">
+        <td th:text="${user.getId()}">
         <td th:text="${user.getName()}">
         <td th:text="${user.getSurname()}">
         <td th:text="${user.getDepartment()}">
@@ -25,6 +27,10 @@
     </tr>
     </tbody>
 </table>
+
+<br/>
+<hr/>
+<a href="/spring_mvc_war_exploded/users/new">Create New Person</a>
 
 </body>
 </html>
