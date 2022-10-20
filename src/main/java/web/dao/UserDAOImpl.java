@@ -5,12 +5,17 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import web.model.User;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Repository
 public class UserDAOImpl implements UserDAO{
+
+    @PersistenceContext
+    private EntityManager entityManager;
 
     private static int PEOPLE_COUNT;
     private List<User> users;
